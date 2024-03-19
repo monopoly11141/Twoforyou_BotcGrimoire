@@ -1,10 +1,13 @@
 [versions]
 activity-compose = "1.8.2"
 com-android-application = "8.3.0"
+com-google-gms-google-services = "4.4.1"
 androidx-junit = "1.1.5"
 core-ktx = "1.12.0"
 com-google-dagger-hilt-android = "2.46"
 espresso-core = "3.5.1"
+firebase-bom = "32.7.4"
+google-firebase-bom = "32.7.4"
 hilt-android = "2.49"
 hilt-android-compiler = "2.46"
 hilt-navigation-fragment = "1.2.0"
@@ -36,6 +39,8 @@ androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-runtime-ktx" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-bom-v3271 = { module = "com.google.firebase:firebase-bom", version.ref = "google-firebase-bom" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android-compiler" }
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -44,3 +49,4 @@ junit = { module = "junit:junit", version.ref = "junit" }
 com-android-application = { id = "com.android.application", version.ref = "com-android-application" }
 org-jetbarins-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
 com-google-dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "com-google-dagger-hilt-android" }
+com-google-gms-google-services = {id = "com.google.gms.google-services", version.ref = "com-google-gms-google-services"}

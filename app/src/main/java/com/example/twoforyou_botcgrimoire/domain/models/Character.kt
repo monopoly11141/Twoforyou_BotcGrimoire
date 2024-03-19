@@ -4,11 +4,15 @@ import com.example.twoforyou_botcgrimoire.domain.enums.Character_Type
 import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 
 data class Character(
-    val name : String? = null,
-    val type : Character_Type? = null,
+    val name : String,
+    val type : Character_Type,
+    val ability : String,
+    val fromWhichEdition : Edition,
+    val numberOfReminderTokens : Int,
+    val reminderTokens : List<String> = emptyList(),
+    val imageUrl: String,
     val firstNightOrder : Int? = null,
     val otherNightOrder : Int? = null,
-    val imageUrl: String? = null,
-    val fromWhichEdition : Edition? = null,
-    val numberOfReminderTokens : Int = 0
+    @field:JvmField
+    val isFormatChangingRole : Boolean = false,
 )

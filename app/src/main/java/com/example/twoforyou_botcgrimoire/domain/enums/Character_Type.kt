@@ -5,8 +5,4 @@ enum class Character_Type {
     외부인_OUTSIDER,
     하수인_MINION,
     악마_DEMON;
-
-    fun getIntValue(): Int {
-        return entries.indexOf(this)
-    }
 }

@@ -6,6 +6,8 @@ plugins {
     //Currently, no way to fix to alias
     id("kotlin-kapt")
 
+    alias(libs.plugins.com.google.gms.google.services)
+
 }
 
 android {
@@ -85,4 +87,9 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.work.runtime.ktx)
+
+    //firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(platform(libs.firebase.bom.v3271))
+    implementation("com.google.firebase:firebase-firestore")
 }

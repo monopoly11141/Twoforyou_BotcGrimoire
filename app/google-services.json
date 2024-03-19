@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "159396543800",
+    "project_id": "grimoire-cfcee",
+    "storage_bucket": "grimoire-cfcee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159396543800:android:cbccd9bed490e11a1b55cd",
+        "android_client_info": {
+          "package_name": "com.example.twoforyou_botcgrimoire"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGwDhG5YM2vGnRLLR6UA4-STUh8FMARVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
