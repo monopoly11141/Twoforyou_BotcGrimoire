@@ -26,12 +26,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Twoforyou_BotcGrimoireTheme {
-
-                val db = Firebase.firestore
-
-                db.collection("characters").document("소란발생_TROUBLE_BREWING")
-                    .set(TROUBLE_BREWING_CHARACTERS.CHARACTERS)
-
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
