@@ -11,6 +11,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.twoforyou_botcgrimoire.domain.constant.TROUBLE_BREWING_CHARACTERS
+import com.example.twoforyou_botcgrimoire.domain.database.remote.FirestoreCharacterDatabase
 import com.example.twoforyou_botcgrimoire.domain.enums.Character_Type
 import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.example.twoforyou_botcgrimoire.domain.models.Character
@@ -26,6 +27,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Twoforyou_BotcGrimoireTheme {
+                //FirestoreCharacterDatabase().getAllCharacters()
+                TROUBLE_BREWING_CHARACTERS.addTroubleBrewingCharactersToDatabase()
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),

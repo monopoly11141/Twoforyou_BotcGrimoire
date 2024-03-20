@@ -335,9 +335,11 @@ class TROUBLE_BREWING_CHARACTERS {
 
         fun addTroubleBrewingCharactersToDatabase() {
             val db = Firebase.firestore
+            for (character in CHARACTERS) {
+                db.collection("소란발생_Trouble_Brewing_Characters").document(character.value.name)
+                    .set(character)
+            }
 
-            db.collection("characters").document("소란발생_TROUBLE_BREWING")
-                .set(CHARACTERS)
         }
     }
 }
