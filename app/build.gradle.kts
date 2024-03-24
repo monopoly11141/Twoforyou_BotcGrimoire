@@ -91,5 +91,5 @@ dependencies {
     //firebase
     implementation(platform(libs.firebase.bom))
     implementation(platform(libs.firebase.bom.v3271))
-    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-database-ktx")
 }

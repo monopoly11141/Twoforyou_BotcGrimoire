@@ -4,7 +4,7 @@ import com.example.twoforyou_botcgrimoire.domain.enums.Character_Type
 import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.example.twoforyou_botcgrimoire.domain.models.Character
 import com.google.firebase.Firebase
-import com.google.firebase.firestore.firestore
+import com.google.firebase.database.database
 
 class TROUBLE_BREWING_CHARACTERS {
     companion object {
@@ -334,10 +334,10 @@ class TROUBLE_BREWING_CHARACTERS {
         )
 
         fun addTroubleBrewingCharactersToDatabase() {
-            val db = Firebase.firestore
+            val database = Firebase.database
+            val databaseReference = database.getReference("소란발생_Trouble_Brewing_Characters")
             for (character in CHARACTERS) {
-                db.collection("소란발생_Trouble_Brewing_Characters").document(character.value.name)
-                    .set(character)
+                databaseReference.child(character.value.type.toString()).child(character.key).setValue(character.value)
             }
 
         }
