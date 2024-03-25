@@ -8,6 +8,8 @@ plugins {
 
     alias(libs.plugins.com.google.gms.google.services)
 
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -92,4 +94,13 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(platform(libs.firebase.bom.v3271))
     implementation("com.google.firebase:firebase-database-ktx")
+
+    //lifecycle
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
+    //coil
+    implementation(libs.coil.compose)
+
+    //gson
+    implementation(libs.gson)
 }

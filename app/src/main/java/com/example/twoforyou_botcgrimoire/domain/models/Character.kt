@@ -13,6 +13,5 @@ data class Character(
     val imageUrl: String,
     val firstNightOrder : Int? = null,
     val otherNightOrder : Int? = null,
-    @field:JvmField
     val isFormatChangingRole : Boolean = false,
 )

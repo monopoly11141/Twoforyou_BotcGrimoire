@@ -335,7 +335,7 @@ class TROUBLE_BREWING_CHARACTERS {
 
         fun addTroubleBrewingCharactersToDatabase() {
             val database = Firebase.database
-            val databaseReference = database.getReference("소란발생_Trouble_Brewing_Characters")
+            val databaseReference = database.getReference(Edition.소란발생_TROUBLE_BREWING.toString())
             for (character in CHARACTERS) {
                 databaseReference.child(character.value.type.toString()).child(character.key).setValue(character.value)
             }

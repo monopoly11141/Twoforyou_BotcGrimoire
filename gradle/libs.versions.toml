@@ -1,5 +1,6 @@
 [versions]
 activity-compose = "1.8.2"
+coil-compose = "2.6.0"
 com-android-application = "8.3.0"
 com-google-gms-google-services = "4.4.1"
 androidx-junit = "1.1.5"
@@ -8,11 +9,13 @@ com-google-dagger-hilt-android = "2.46"
 espresso-core = "3.5.1"
 firebase-bom = "32.7.4"
 google-firebase-bom = "32.7.4"
+gson = "2.10.1"
 hilt-android = "2.49"
 hilt-android-compiler = "2.46"
 hilt-navigation-fragment = "1.2.0"
 hilt-work = "1.2.0"
 junit = "4.13.2"
+moshi = "1.15.0"
 org-jetbrains-kotlin-android = "1.9.0"
 lifecycle-runtime-ktx = "2.7.0"
 compose-bom = "2024.02.02"
@@ -28,6 +31,7 @@ androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-com
 androidx-hilt-navigation-fragment = { module = "androidx.hilt:hilt-navigation-fragment", version.ref = "hilt-navigation-fragment" }
 androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hilt-work" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle-runtime-ktx" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
@@ -39,11 +43,14 @@ androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-runtime-ktx" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
 firebase-bom-v3271 = { module = "com.google.firebase:firebase-bom", version.ref = "google-firebase-bom" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android-compiler" }
 junit = { module = "junit:junit", version.ref = "junit" }
+moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-application" }
