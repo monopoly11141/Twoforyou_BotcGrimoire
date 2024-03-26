@@ -6,7 +6,6 @@ data class Player(
     val character: Character? = null,
     val alignment: Alignment? = null,
     val isAlive: Boolean = true,
-    val isDrunk: Boolean = false,
-    val isPoisoned: Boolean = false,
+    val reminderTokens : List<String>? = null,
     val hasOneTimeVoteToken: Boolean = true
 )
