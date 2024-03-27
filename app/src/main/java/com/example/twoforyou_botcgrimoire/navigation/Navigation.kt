@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.example.twoforyou_botcgrimoire.domain.models.AssetParamType
 import com.example.twoforyou_botcgrimoire.domain.models.CharacterList
 import com.example.twoforyou_botcgrimoire.ui.screen.grimoire.GrimoireScreen
@@ -28,7 +29,7 @@ fun Navigation(
 //        }
 
         composable(
-            "${Screen.GrimoireScreen.route}/{inPlayCharacters}",
+            "${Screen.GrimoireScreen.route}/{edition}/{inPlayCharacters}",
             arguments = listOf(
                 navArgument("inPlayCharacters") {
                     type = AssetParamType()

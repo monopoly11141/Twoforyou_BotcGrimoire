@@ -2,6 +2,7 @@ package com.example.twoforyou_botcgrimoire.ui.screen.grimoire
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.example.twoforyou_botcgrimoire.domain.models.Character
 import com.example.twoforyou_botcgrimoire.domain.repository.GrimoireRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,6 +36,16 @@ class GrimoireViewModel @Inject constructor(
         _state.update {
             it.copy (
                 inPlayCharacters = updatedInPlayCharacters
+            )
+        }
+    }
+
+    fun updatePossibleCharactersByEdition(edition : Edition) {
+        repository.updatePossibleCharactersByEdition(edition)
+
+        _state.update {
+            it.copy (
+                possibleCharacters = repository.possibleCharacters.value
             )
         }
     }

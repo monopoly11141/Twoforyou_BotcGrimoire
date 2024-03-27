@@ -50,9 +50,12 @@ fun SetupScreen(
 
         MakeGrimoireButton(
             onClickButton = {
-                val inPlayCharacters = CharacterList(state.inPlayCharacters)
+                val inPlayCharacters = CharacterList(state.edition, state.inPlayCharacters)
                 val json = Uri.encode(Gson().toJson(inPlayCharacters))
-                navController.navigate("${Screen.GrimoireScreen.route}/$json")
+
+                val edition = state.edition
+                val jsonEdition = Uri.encode(Gson().toJson(edition))
+                navController.navigate("${Screen.GrimoireScreen.route}/$jsonEdition/$json")
             }
         )
 

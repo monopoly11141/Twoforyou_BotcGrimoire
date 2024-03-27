@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.os.Parcelable
 import androidx.annotation.RequiresApi
 import androidx.navigation.NavType
+import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.google.gson.Gson
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue
 
 @Parcelize
 data class CharacterList(
+    val edition: @RawValue Edition,
     val inPlayCharacters: @RawValue List<Character> = emptyList(),
 ) : Parcelable
 

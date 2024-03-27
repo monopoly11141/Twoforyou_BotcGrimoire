@@ -1,5 +1,7 @@
 [versions]
 activity-compose = "1.8.2"
+cascade = "2.3.0"
+cascade-compose = "2.3.0"
 coil-compose = "2.6.0"
 com-android-application = "8.3.0"
 com-google-gms-google-services = "4.4.1"
@@ -43,6 +45,8 @@ androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-runtime-ktx" }
+cascade = { module = "me.saket.cascade:cascade", version.ref = "cascade" }
+cascade-compose = { module = "me.saket.cascade:cascade-compose", version.ref = "cascade-compose" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
 firebase-bom-v3271 = { module = "com.google.firebase:firebase-bom", version.ref = "google-firebase-bom" }

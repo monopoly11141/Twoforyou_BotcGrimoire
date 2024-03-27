@@ -1,6 +1,7 @@
 package com.example.twoforyou_botcgrimoire.data.repository
 
 import com.example.twoforyou_botcgrimoire.domain.database.remote.FirebaseCharacterDatabase
+import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.example.twoforyou_botcgrimoire.domain.repository.GrimoireRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -23,5 +24,10 @@ class GrimoireRepositoryImpl @Inject constructor(
     override fun updateInPlayCharacters(updatedInPlayCharacters: List<Character>) {
         _inPlayCharacters.value = updatedInPlayCharacters
     }
+
+    override fun updatePossibleCharactersByEdition(edition: Edition) {
+        firebaseCharacterDatabase.getAllCharactersFromEdition(edition)
+    }
+
 
 }

@@ -103,4 +103,8 @@ dependencies {
 
     //gson
     implementation(libs.gson)
+
+    //cascadedropdown
+    implementation(libs.cascade)
+    implementation(libs.cascade.compose)
 }

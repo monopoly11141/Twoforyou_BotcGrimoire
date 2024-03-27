@@ -53,6 +53,9 @@ class FirebaseCharacterDatabase {
                             _possibleCharacterList.value += character
                         }
                     }
+                    _possibleCharacterList.value.sortedBy {
+                        it.type.name
+                    }
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {

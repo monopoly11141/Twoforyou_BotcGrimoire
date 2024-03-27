@@ -1,5 +1,6 @@
 package com.example.twoforyou_botcgrimoire.domain.repository
 
+import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.example.twoforyou_botcgrimoire.domain.models.Character
 import kotlinx.coroutines.flow.StateFlow
 
@@ -9,4 +10,6 @@ interface GrimoireRepository {
     val possibleCharacters: StateFlow<List<Character>>
 
     fun updateInPlayCharacters(updatedInPlayCharacters: List<Character>)
+
+    fun updatePossibleCharactersByEdition(edition : Edition)
 }

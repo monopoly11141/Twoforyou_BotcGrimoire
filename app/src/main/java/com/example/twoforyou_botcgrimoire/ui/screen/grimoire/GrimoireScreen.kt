@@ -42,6 +42,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import coil.size.Size
 import com.example.twoforyou_botcgrimoire.R
+import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.example.twoforyou_botcgrimoire.domain.models.CharacterList
 import com.example.twoforyou_botcgrimoire.domain.models.Player
 import com.example.twoforyou_botcgrimoire.ui.composables.CharacterItem
@@ -56,6 +57,7 @@ fun GrimoireScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     viewModel.updateInPlayCharacters(characterList.inPlayCharacters)
+    viewModel.updatePossibleCharactersByEdition(characterList.edition)
 
     var zoom by remember { mutableStateOf(1f) }
     var offset by remember { mutableStateOf(Offset.Zero) }
