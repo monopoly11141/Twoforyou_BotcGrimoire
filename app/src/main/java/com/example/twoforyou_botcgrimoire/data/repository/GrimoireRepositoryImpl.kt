@@ -21,12 +21,37 @@ class GrimoireRepositoryImpl @Inject constructor(
         firebaseCharacterDatabase.possibleCharacterList
     }
 
+    private val _inPlayReminderTokens = MutableStateFlow<List<String>>(emptyList())
+    override val inPlayReminderTokens: StateFlow<List<String>>
+        get() = _inPlayReminderTokens.asStateFlow()
+
     override fun updateInPlayCharacters(updatedInPlayCharacters: List<Character>) {
         _inPlayCharacters.value = updatedInPlayCharacters
     }
 
+    override fun insertInPlayerCharacter(insertedInPlayCharacter: Character)  {
+        _inPlayCharacters.value += insertedInPlayCharacter
+
+    }
+
+    override fun deleteInPlayCharacter(deletedInPlayCharacter: Character) {
+        _inPlayCharacters.value -= deletedInPlayCharacter
+    }
+
     override fun updatePossibleCharactersByEdition(edition: Edition) {
         firebaseCharacterDatabase.getAllCharactersFromEdition(edition)
+    }
+
+    override fun updateInPlayReminderTokens(updatedInPlayReminderTokens: List<String>) {
+        _inPlayReminderTokens.value = updatedInPlayReminderTokens
+    }
+
+    override fun insertInPlayReminderToken(insertedInPlayReminderToken: String) {
+        _inPlayReminderTokens.value += insertedInPlayReminderToken
+    }
+
+    override fun deleteInPlayReminderToken(deletedInPlayReminderToken: String) {
+        _inPlayReminderTokens.value -= deletedInPlayReminderToken
     }
 
 

@@ -22,11 +22,13 @@ class GrimoireViewModel @Inject constructor(
     val state = combine(
         repository.inPlayCharacters,
         repository.possibleCharacters,
+        repository.inPlayReminderTokens,
         _state
     ) { array ->
         GrimoireUiState(
             inPlayCharacters = array[0] as List<Character>,
             possibleCharacters = array[1] as List<Character>,
+            inPlayReminderTokens = array[2] as List<String>
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), _state.value)
 
@@ -40,12 +42,66 @@ class GrimoireViewModel @Inject constructor(
         }
     }
 
+    fun insertInPlayCharacter(insertedInPlayCharacter : Character) {
+        repository.insertInPlayerCharacter(insertedInPlayCharacter)
+
+        _state.update {
+            it.copy (
+                inPlayCharacters = repository.inPlayCharacters.value
+            )
+        }
+    }
+
+    fun deleteInPlayCharacter(deletedInPlayCharacter : Character) {
+        repository.deleteInPlayCharacter(deletedInPlayCharacter)
+
+        _state.update {
+            it.copy (
+                inPlayCharacters = repository.inPlayCharacters.value
+            )
+        }
+    }
+
     fun updatePossibleCharactersByEdition(edition : Edition) {
         repository.updatePossibleCharactersByEdition(edition)
 
         _state.update {
             it.copy (
                 possibleCharacters = repository.possibleCharacters.value
+            )
+        }
+    }
+
+    // fun updateInPlayReminderTokens(updatedInPlayReminderTokens : List<String>)
+    //    fun insertInPlayReminderToken(insertedInPlayReminderToken : String)
+    //    fun deleteInPlayReminderToken(deletedInPlayReminderToken : String)
+
+    fun updateInPlayReminderTokens(updatedInPlayReminderTokens : List<String>) {
+        repository.updateInPlayReminderTokens(updatedInPlayReminderTokens)
+
+        _state.update {
+            it.copy(
+                inPlayReminderTokens = updatedInPlayReminderTokens
+            )
+        }
+    }
+
+    fun insertInPlayReminderToken(insertedInPlayReminderToken : String) {
+        repository.insertInPlayReminderToken(insertedInPlayReminderToken)
+
+        _state.update {
+            it.copy (
+                inPlayReminderTokens = repository.inPlayReminderTokens.value
+            )
+        }
+    }
+
+    fun deleteInPlayReminderToken(deletedInPlayReminderToken : String) {
+        repository.deleteInPlayReminderToken(deletedInPlayReminderToken)
+
+        _state.update {
+            it.copy (
+                inPlayReminderTokens = repository.inPlayReminderTokens.value
             )
         }
     }
