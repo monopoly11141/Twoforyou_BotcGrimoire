@@ -9,7 +9,7 @@ data class Character(
     val ability : String,
     val fromWhichEdition : Edition,
     val numberOfReminderTokens : Int,
-    val reminderTokens : List<String> = emptyList(),
+    var reminderTokens : List<String> = emptyList(),
     val imageUrl: String,
     val firstNightOrder : Int? = null,
     val otherNightOrder : Int? = null,

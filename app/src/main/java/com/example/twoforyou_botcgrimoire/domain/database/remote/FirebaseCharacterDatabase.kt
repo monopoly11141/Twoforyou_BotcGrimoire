@@ -50,6 +50,9 @@ class FirebaseCharacterDatabase {
                                 thisCharacter.child("isFormatChangingRole").value.toString()
                                     .toBoolean(),
                             )
+                            if(character.numberOfReminderTokens == 0) {
+                                character.reminderTokens = emptyList()
+                            }
                             _possibleCharacterList.value += character
                         }
                     }

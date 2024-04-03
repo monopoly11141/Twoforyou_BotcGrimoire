@@ -72,10 +72,6 @@ class GrimoireViewModel @Inject constructor(
         }
     }
 
-    // fun updateInPlayReminderTokens(updatedInPlayReminderTokens : List<String>)
-    //    fun insertInPlayReminderToken(insertedInPlayReminderToken : String)
-    //    fun deleteInPlayReminderToken(deletedInPlayReminderToken : String)
-
     fun updateInPlayReminderTokens(updatedInPlayReminderTokens : List<String>) {
         repository.updateInPlayReminderTokens(updatedInPlayReminderTokens)
 
