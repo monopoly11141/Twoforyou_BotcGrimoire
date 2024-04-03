@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
@@ -52,6 +53,9 @@ fun PlayerItem(
 
     var isDropDownMenuExpanded by remember { mutableStateOf(false) }
 
+    var backgroundColor by remember { mutableStateOf(Color.Gray) }
+    var alpha by remember { mutableFloatStateOf(1f) }
+
     Box(
         modifier = modifier
             .offset(
@@ -60,7 +64,7 @@ fun PlayerItem(
             )
             .size(100.dp)
             .clip(CircleShape)
-            .background(Color.Gray)
+            .background(backgroundColor)
             .pointerInput(Unit) {
                 detectDragGestures { change, dragAmount ->
                     change.consume()
@@ -74,7 +78,9 @@ fun PlayerItem(
     ) {
         AsyncImage(
             model = thisPlayer.character?.imageUrl,
-            contentDescription = "Image of ${player.character?.name ?: "NO_CHARACTER"}"
+            contentDescription = "Image of ${player.character?.name ?: "NO_CHARACTER"}",
+            modifier = Modifier
+                .alpha(alpha)
         )
 
         CascadeDropdownMenu(
@@ -98,18 +104,48 @@ fun PlayerItem(
                                 )
                             },
                             onClick = {
-                                viewModel.deleteInPlayCharacter(player.character!!)
+                                player.character?.let { viewModel.deleteInPlayCharacter(it) }
 
-                                thisPlayer = player.copy(
-                                    character = possibleCharacter
-                                )
+                                player.character = possibleCharacter
 
-                                viewModel.insertInPlayCharacter(player.character)
+                                player.character?.let { viewModel.insertInPlayCharacter(it) }
                                 isDropDownMenuExpanded = false
-                            },
-
-                            )
+                            }
+                        )
                     }
+
+                }
+            )
+            DropdownMenuItem(
+                text = {
+                    Text(
+                        "삶/죽음"
+                    )
+                },
+                children = {
+                    DropdownMenuItem(
+                        text = {
+                            Text(
+                                "삶 표시하기"
+                            )
+                        },
+                        onClick = {
+                            alpha = 1f
+                            backgroundColor = Color.Gray
+                        }
+                    )
+
+                    DropdownMenuItem(
+                        text = {
+                            Text(
+                                "죽음 표시하기"
+                            )
+                        },
+                        onClick = {
+                            alpha = 0.25f
+                            backgroundColor = Color.Black
+                        }
+                    )
 
                 }
             )

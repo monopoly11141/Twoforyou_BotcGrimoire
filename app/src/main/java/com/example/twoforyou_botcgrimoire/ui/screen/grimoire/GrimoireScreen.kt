@@ -31,7 +31,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.twoforyou_botcgrimoire.domain.models.CharacterList
 import com.example.twoforyou_botcgrimoire.ui.composables.GrimoirePlayerLayout
-import com.example.twoforyou_botcgrimoire.ui.composables.Topbar
 
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -54,7 +53,6 @@ fun GrimoireScreen(
                 actions = {
                     IconButton(onClick = {
                         showAllReminderTokens = true
-                        Log.d("TAG", "Topbar: showallreminder value changed")
                     }) {
                         Icon(
                             imageVector = Icons.Filled.MoreVert,
@@ -66,7 +64,7 @@ fun GrimoireScreen(
                             expanded = showAllReminderTokens,
                             onDismissRequest = { showAllReminderTokens = false },
                         ) {
-                            for (character in state.inPlayCharacters) {
+                            for (character in state.possibleCharacters) {
                                 character.reminderTokens.forEach { reminderToken ->
                                     DropdownMenuItem(
                                         text = { Text(reminderToken) },
@@ -74,6 +72,7 @@ fun GrimoireScreen(
                                             viewModel.insertInPlayReminderToken(
                                                 reminderToken
                                             )
+                                            showAllReminderTokens = false
                                         }
                                     )
                                 }

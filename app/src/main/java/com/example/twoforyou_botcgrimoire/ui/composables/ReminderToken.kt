@@ -23,6 +23,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextAlign
@@ -53,7 +55,7 @@ fun ReminderToken(
                 (offsetX / density.density).dp,
                 (offsetY / density.density).dp,
             )
-            .size(100.dp)
+            .size(50.dp)
             .clip(CircleShape)
             .background(Color.Gray)
             .pointerInput(Unit) {
@@ -82,8 +84,8 @@ fun ReminderToken(
                 .wrapContentSize(),
         ) {
             DropdownMenuItem(
-                text = { "없애기" },
-                onClick = { viewModel.deleteInPlayReminderToken(reminderToken) }
+                text = { Text("없애기") },
+                onClick = { viewModel.deleteInPlayReminderToken(reminderToken) },
             )
         }
 
