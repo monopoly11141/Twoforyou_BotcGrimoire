@@ -29,6 +29,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.twoforyou_botcgrimoire.ui.screen.grimoire.GrimoireViewModel
@@ -55,7 +56,7 @@ fun ReminderToken(
                 (offsetX / density.density).dp,
                 (offsetY / density.density).dp,
             )
-            .size(50.dp)
+            .size(60.dp)
             .clip(CircleShape)
             .background(Color.Gray)
             .pointerInput(Unit) {
@@ -73,8 +74,10 @@ fun ReminderToken(
         Text(
             text = StringUtils.filterKoreanCharacters(reminderToken),
             modifier = modifier
-                .fillMaxSize(),
-            textAlign = TextAlign.Center
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center),
+            textAlign = TextAlign.Center,
+            fontSize = 12.sp
         )
 
         DropdownMenu(
