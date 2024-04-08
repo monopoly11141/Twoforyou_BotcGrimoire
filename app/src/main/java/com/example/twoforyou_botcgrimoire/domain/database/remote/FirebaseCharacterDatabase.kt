@@ -47,7 +47,7 @@ class FirebaseCharacterDatabase {
                                     .toIntOrNull(),
                                 thisCharacter.child("otherNightOrder").value.toString()
                                     .toIntOrNull(),
-                                thisCharacter.child("isFormatChangingRole").value.toString()
+                                thisCharacter.child("formatChangingRole").value.toString()
                                     .toBoolean(),
                             )
                             if(character.numberOfReminderTokens == 0) {
