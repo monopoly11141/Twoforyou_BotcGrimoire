@@ -71,7 +71,6 @@ fun DisplayCharacterByType(
             .fillMaxWidth(),
     ) {
         for (character in characterList) {
-            Log.d("TAG", "DisplayCharacterByType: ${character.name} : ${character.isFormatChangingRole}")
             CharacterItem(
                 character = character
             ) {

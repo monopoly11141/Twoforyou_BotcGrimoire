@@ -47,8 +47,7 @@ fun CharacterItem(
     val state by viewModel.state.collectAsState()
 
     var showDialog by remember { mutableStateOf(false) }
-    val TAG = ""
-    Log.d(TAG, "CharacterItem: ${character.name} ${character.isFormatChangingRole}")
+
     Column(
         modifier = Modifier
             .fillMaxWidth(1f / 5f)
