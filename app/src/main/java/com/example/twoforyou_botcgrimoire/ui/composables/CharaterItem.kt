@@ -107,21 +107,8 @@ fun CharacterItem(
         )
     }
     if (showDialog) {
-        Dialog(onDismissRequest = { showDialog = false }) {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .padding(8.dp),
-                shape = RoundedCornerShape(8.dp),
-            ) {
-                Text(
-                    text = character.ability,
-                    modifier = Modifier
-                        .wrapContentSize(Alignment.Center),
-                    textAlign = TextAlign.Center,
-                )
-            }
+        CharacterEffectDialog(character = character) {
+            showDialog = false
         }
     }
 }

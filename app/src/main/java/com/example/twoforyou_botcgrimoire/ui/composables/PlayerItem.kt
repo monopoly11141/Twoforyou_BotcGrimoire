@@ -49,12 +49,14 @@ fun PlayerItem(
     var offsetX by remember { mutableFloatStateOf(0f) }
     var offsetY by remember { mutableFloatStateOf(0f) }
 
-    var thisPlayer by remember { mutableStateOf(player) }
+    val thisPlayer by remember { mutableStateOf(player) }
 
     var isDropDownMenuExpanded by remember { mutableStateOf(false) }
 
     var backgroundColor by remember { mutableStateOf(Color.Gray) }
     var alpha by remember { mutableFloatStateOf(1f) }
+
+    var showDialog by remember {mutableStateOf(false)}
 
     Box(
         modifier = modifier
@@ -104,11 +106,8 @@ fun PlayerItem(
                                 )
                             },
                             onClick = {
-                                player.character?.let { viewModel.deleteInPlayCharacter(it) }
-
-                                player.character = possibleCharacter
-
-                                player.character?.let { viewModel.insertInPlayCharacter(it) }
+                                viewModel.changePlayerCharacter(thisPlayer, possibleCharacter)
+                                //player.character = possibleCharacter
                                 isDropDownMenuExpanded = false
                             }
                         )
@@ -116,6 +115,7 @@ fun PlayerItem(
 
                 }
             )
+
             DropdownMenuItem(
                 text = {
                     Text(
@@ -150,7 +150,28 @@ fun PlayerItem(
                 }
             )
 
+            DropdownMenuItem(
+                text = {
+                    Text(
+                        text = "캐릭터 설명 보기"
+                    )
+                },
+
+                children = {
+                    showDialog = true
+                    isDropDownMenuExpanded = false
+                }
+            )
+
         }
+        if(showDialog) {
+            CharacterEffectDialog(
+                character = thisPlayer.character!!
+            ) {
+                showDialog = false
+            }
+        }
+
     }
 
 }

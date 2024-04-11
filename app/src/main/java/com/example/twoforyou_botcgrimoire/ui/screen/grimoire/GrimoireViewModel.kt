@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.twoforyou_botcgrimoire.domain.enums.Edition
 import com.example.twoforyou_botcgrimoire.domain.models.Character
+import com.example.twoforyou_botcgrimoire.domain.models.Player
 import com.example.twoforyou_botcgrimoire.domain.repository.GrimoireRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -100,6 +101,23 @@ class GrimoireViewModel @Inject constructor(
                 inPlayReminderTokens = repository.inPlayReminderTokens.value
             )
         }
+    }
+
+    fun changePlayerCharacter(player : Player, character : Character) {
+        repository.deleteInPlayCharacter(player.character!!)
+        repository.insertInPlayerCharacter(character)
+
+        player.apply {
+            this.character = character
+        }
+
+        _state.update {
+            it.copy (
+               inPlayCharacters = repository.inPlayCharacters.value
+            )
+        }
+
+
     }
 
 }
